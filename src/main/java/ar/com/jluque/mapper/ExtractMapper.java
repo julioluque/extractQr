@@ -39,7 +39,7 @@ public class ExtractMapper {
 		return header + fileName + dateTime + version + filler;
 	}
 
-	public static String getFooterAsync(int extractRows) {
+	public static String getFooter(int extractRows) {
 		System.out.println("Creando Footer.");
 		String footer = "FOOTER";
 		String rows = String.format("%-10s", String.valueOf(extractRows + 1));
@@ -47,12 +47,4 @@ public class ExtractMapper {
 		return footer + rows + dateTime;
 	}
 
-//	public static String getFooter(int pagosRows, int interopRows) {
-//		System.out.println("Creando Footer.");
-//		String footer = "FOOTER";
-//		String totalRows = String.valueOf(pagosRows + interopRows);
-//		String rows = String.format("%-10s", totalRows);
-//		String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-//		return footer + rows + dateTime;
-//	}
 }

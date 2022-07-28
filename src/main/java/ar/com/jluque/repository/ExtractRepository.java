@@ -13,7 +13,6 @@ import ar.com.jluque.dto.ExtractLine;
 @Repository
 public class ExtractRepository {
 
-
 	@Autowired
 	@Qualifier("jdbcMaster")
 	private JdbcTemplate jdbcTemplate;

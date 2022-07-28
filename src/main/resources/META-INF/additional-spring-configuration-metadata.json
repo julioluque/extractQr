@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "legacy.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'legacy.datasource.url'"
+  },
+  {
+    "name": "file.path.merge",
+    "type": "java.lang.String",
+    "description": "A description for 'file.path.merge'"
+  },
+  {
+    "name": "file.path.pagos",
+    "type": "java.lang.String",
+    "description": "A description for 'file.path.pagos'"
+  },
+  {
+    "name": "file.path.interop",
+    "type": "java.lang.String",
+    "description": "A description for 'file.path.interop'"
+  },
+  {
+    "name": "legacy.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'legacy.datasource.username'"
+  },
+  {
+    "name": "legacy.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'legacy.datasource.password'"
+  },
+  {
+    "name": "legacy.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'legacy.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.jdbc-url'"
+  },
+  {
+    "name": "legacy.datasource.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'legacy.datasource.jdbc-url'"
+  }
+]}
