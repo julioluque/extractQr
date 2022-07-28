@@ -13,14 +13,13 @@ import ar.com.jluque.dto.ExtractLine;
 @Repository
 public class ExtractRepository {
 
-//	@Autowired
-//	private JdbcTemplate jdbcTemplate;
 
 	@Autowired
 	@Qualifier("jdbcMaster")
 	private JdbcTemplate jdbcTemplate;
 
 	public List<ExtractLine> findExtractPagos(String queryExtract) {
+		System.out.println("Buscando extract de pagos.");
 		return jdbcTemplate.query(queryExtract, new BeanPropertyRowMapper<>(ExtractLine.class));
 	}
 

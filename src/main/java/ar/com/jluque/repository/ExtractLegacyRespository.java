@@ -18,6 +18,7 @@ public class ExtractLegacyRespository {
 	private JdbcTemplate jdbcTemplate;
 
 	public List<ExtractLine> findExtractInterop(String queryExtract) {
+		System.out.println("Buscando extract de interoperable.");
 		return jdbcTemplate.query(queryExtract, new BeanPropertyRowMapper<>(ExtractLine.class));
 	}
 }
