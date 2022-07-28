@@ -12,34 +12,30 @@ public class ExtractMapper {
 	}
 
 	public static void getPaths(ExtractFiles files, Environments env) {
-		if (files.getPagos() == null || files.getPagos().equals(""))
-			files.setPagos(env.getPagosPath());
-		else
-			files.setPagos(files.getPagos().replace("/", "\\"));
+		files.setPagos(files.getPagos() == null || files.getPagos().equals("") ? env.getPagosPath()
+				: files.getPagos().replace("/", "\\"));
 
-		if (files.getInterop() == null || files.getInterop().equals(""))
-			files.setInterop(env.getInteropPath());
-		else
-			files.setInterop(files.getInterop().replace("/", "\\"));
+		files.setInterop(files.getInterop() == null || files.getInterop().equals("") ? env.getInteropPath()
+				: files.getInterop().replace("/", "\\"));
 
-		if (files.getMerge() == null || files.getMerge().equals(""))
-			files.setMerge(env.getMergePath());
-		else
-			files.setMerge(files.getMerge().replace("/", "\\"));
+		files.setMerge(files.getMerge() == null || files.getMerge().equals("") ? env.getMergePath() + getFileName()
+				: files.getMerge().replace("/", "\\") + getFileName());
 	}
-	
-	public static String getHeader() {
-		String header = "HEADER";
+
+	public static String getFileName() {
 		String codigoEntidad = "QR0014";
 		String frecuencia = "D_";
 		String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
-		String separador = ".txt";
+		String extension = ".txt";
+		return codigoEntidad + frecuencia + date + extension;
+	}
+
+	public static String getHeader(String fileName) {
+		String header = "HEADER";
 		String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
 		String version = "03";
 		String filler = " ".repeat(631);
-		header = header + codigoEntidad + frecuencia + date + separador + dateTime + version + filler;
-		System.out.println(header);
-		return header;
+		return header + fileName + dateTime + version + filler;
 	}
 
 	public static String getFooter(int pagosRows, int interopRows) {
@@ -47,8 +43,6 @@ public class ExtractMapper {
 		String totalRows = String.valueOf(pagosRows + interopRows);
 		String rows = String.format("%-10s", totalRows);
 		String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-		footer = footer + rows + dateTime;
-		System.out.println(footer);
-		return footer;
+		return footer + rows + dateTime;
 	}
 }

@@ -23,9 +23,15 @@ public class ExtractController {
 	@Autowired
 	private Environments env;
 
+//	@PostMapping("/")
+//	public ResponseEntity<String> extractMerge(@RequestBody ExtractFiles files) throws Exception {
+//		ExtractMapper.getPaths(files, env);
+//		return new ResponseEntity<>(service.mergeExtract(files), HttpStatus.OK);
+//	}
+	
 	@PostMapping("/")
-	public ResponseEntity<String> extractMerge(@RequestBody ExtractFiles files) throws Exception {
+	public ResponseEntity<String> getExtract(@RequestBody ExtractFiles files) throws Exception {
 		ExtractMapper.getPaths(files, env);
-		return new ResponseEntity<>(service.mergeExtract(files), HttpStatus.OK);
+		return new ResponseEntity<>(service.getExtract(files), HttpStatus.OK);
 	}
 }
