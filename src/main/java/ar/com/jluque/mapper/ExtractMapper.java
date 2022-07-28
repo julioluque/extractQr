@@ -3,10 +3,15 @@ package ar.com.jluque.mapper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ar.com.jluque.dto.ExtractFiles;
+import ar.com.jluque.service.ExtractService;
 import ar.com.jluque.config.Environments;
 
 public class ExtractMapper {
+    private static final Logger log = LoggerFactory.getLogger(ExtractMapper.class);
 
 	public ExtractMapper() {
 	}
@@ -31,7 +36,7 @@ public class ExtractMapper {
 	}
 
 	public static String getHeader(String fileName) {
-		System.out.println("Creando header.");
+		log.info("Creando header.");
 		String header = "HEADER";
 		String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
 		String version = "03";
@@ -40,7 +45,7 @@ public class ExtractMapper {
 	}
 
 	public static String getFooter(int extractRows) {
-		System.out.println("Creando Footer.");
+		log.info("Creando Footer.");
 		String footer = "FOOTER";
 		String rows = String.format("%-10s", String.valueOf(extractRows + 1));
 		String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
